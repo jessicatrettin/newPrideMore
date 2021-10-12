@@ -27,7 +27,8 @@ namespace newPrideMore
             services.AddControllersWithViews();
 
             services.AddDbContext<newPrideMoreContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("newPrideMoreContext")));
+                    options.UseMySql(Configuration.GetConnectionString("newPrideMoreContext"), builder =>
+                        builder.MigrationsAssembly("newPrideMore")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
