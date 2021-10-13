@@ -12,5 +12,7 @@ using newPrideMore.Models;
         {
         }
 
-        public DbSet<newPrideMore.Models.ProfessionalType> ProfessionalType { get; set; }
-    }
+        public DbSet<ProfessionalType> ProfessionalType { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+}
