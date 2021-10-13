@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using newPrideMore.Models;
 using newPrideMore.Services;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,19 @@ namespace newPrideMore.Controllers
         {
             var list = _professionalService.FindAll();
             return View(list);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Professional professional)
+        {
+            _professionalService.Insert(professional);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

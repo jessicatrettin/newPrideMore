@@ -19,5 +19,11 @@ namespace newPrideMore.Services
         {
             return _context.Professional.ToList();
         }
+        
+        public void Insert(Professional obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
     }
 }

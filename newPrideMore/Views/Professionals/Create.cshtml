@@ -1,0 +1,62 @@
+﻿@model newPrideMore.Models.Professional
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Cadastro de profissional</h2>
+<hr />
+<div class="row" id="ProfessionalCreate">
+    <div class="col-md-6" id="ProfessionalForm">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfessionalType" class="control-label"></label>
+                <input asp-for="ProfessionalType" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Register" class="control-label"></label>
+                <input asp-for="Register" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Instagram" class="control-label"></label>
+                <input asp-for="Instagram" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="HealthInsurance" class="control-label"></label>
+                <input asp-for="HealthInsurance" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+            </div>
+            <div>
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-dark"
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6" id="ProfessionalImg">
+        <img src=""
+    </div>
+    </div>
