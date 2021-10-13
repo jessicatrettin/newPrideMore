@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using newPrideMore.Services;
 
 namespace newPrideMore
 {
@@ -29,6 +30,8 @@ namespace newPrideMore
             services.AddDbContext<newPrideMoreContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("newPrideMoreContext"), builder =>
                         builder.MigrationsAssembly("newPrideMore")));
+
+            services.AddScoped<ProfessionalService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

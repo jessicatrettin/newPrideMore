@@ -1,0 +1,23 @@
+﻿using newPrideMore.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace newPrideMore.Services
+{
+    public class ProfessionalService
+    {
+        private readonly newPrideMoreContext _context;
+
+        public ProfessionalService(newPrideMoreContext context)
+        {
+            _context = context;
+        }
+
+        public List<Professional> FindAll()
+        {
+            return _context.Professional.ToList();
+        }
+    }
+}

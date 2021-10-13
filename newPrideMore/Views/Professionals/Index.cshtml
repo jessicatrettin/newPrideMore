@@ -1,5 +1,56 @@
-﻿@{
-    ViewData["Title"] = "Index";
-}
+﻿@model IEnumerable<newPrideMore.Models.Professional>
 
-<h2>Professionals</h2>
+@{
+    ViewData["Title"] = "Professionals";
+    }
+
+    <h2>@ViewData["Title"]</h2>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr class="sucess">
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Instagram)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HealthInsurance)
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instagram)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HealthInsurance)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
