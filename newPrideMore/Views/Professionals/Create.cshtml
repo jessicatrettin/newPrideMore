@@ -1,4 +1,4 @@
-﻿@model newPrideMore.Models.Professional
+﻿@model newPrideMore.Models.ViewModels.ProfessionalFormViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,44 +10,46 @@
     <div class="col-md-6" id="ProfessionalForm">
         <form asp-action="Create">
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <label asp-for="Professional.Name" class="control-label"></label>
+                <input asp-for="Professional.Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Cpf" class="control-label"></label>
-                <input asp-for="Cpf" class="form-control" />
+                <label asp-for="Professional.Cpf" class="control-label"></label>
+                <input asp-for="Professional.Cpf" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="ProfessionalType" class="control-label"></label>
-                <input asp-for="ProfessionalType" class="form-control" />
+                <label asp-for="Professional.ProfessionalType" class="control-label"></label>
+                <select asp-for="Professional.ProfessionalType" asp-items="@(new SelectList(Model.ProfessionalTypes,"Id","Speciality"))" class="form-control"></select>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Professional.Register" class="control-label"></label>
+                <input asp-for="Professional.Register" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Register" class="control-label"></label>
-                <input asp-for="Register" class="form-control" />
+                <label asp-for="Professional.Email" class="control-label"></label>
+                <input asp-for="Professional.Email" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <label asp-for="Professional.Address" class="control-label"></label>
+                <input asp-for="Professional.Address" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+                <label asp-for="Professional.Phone" class="control-label"></label>
+                <input asp-for="Professional.Phone" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
+                <label asp-for="Professional.Instagram" class="control-label"></label>
+                <input asp-for="Professional.Instagram" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Instagram" class="control-label"></label>
-                <input asp-for="Instagram" class="form-control" />
+                <label asp-for="Professional.HealthInsurance" class="control-label"></label>
+                <input asp-for="Professional.HealthInsurance" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="HealthInsurance" class="control-label"></label>
-                <input asp-for="HealthInsurance" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <label asp-for="Professional.Password" class="control-label"></label>
+                <input asp-for="Professional.Password" class="form-control" />
             </div>
             <div>
                 <div class="form-group">

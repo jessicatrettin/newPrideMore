@@ -32,6 +32,8 @@ namespace newPrideMore
                         builder.MigrationsAssembly("newPrideMore")));
 
             services.AddScoped<ProfessionalService>();
+            services.AddScoped<ProfessionalTypeService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

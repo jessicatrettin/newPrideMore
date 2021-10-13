@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using newPrideMore.Models;
+using newPrideMore.Models.ViewModels;
 using newPrideMore.Services;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace newPrideMore.Controllers
     {
 
         private readonly ProfessionalService _professionalService;
+        private readonly ProfessionalTypeService _professionaTypeService;
 
-        public ProfessionalsController(ProfessionalService professionalService)
+        public ProfessionalsController(ProfessionalService professionalService, ProfessionalTypeService professionalTypeService)
         {
             _professionalService = professionalService;
+            _professionaTypeService = professionalTypeService;
         }
 
         public IActionResult Index()
@@ -26,7 +29,9 @@ namespace newPrideMore.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var professionalTypes = _professionaTypeService.FindAll();
+            var viewModel = new ProfessionalFormViewModel { ProfessionalTypes = professionalTypes };
+            return View(viewModel);
         }
 
         [HttpPost]

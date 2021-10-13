@@ -25,5 +25,10 @@ namespace newPrideMore.Services
             _context.Add(obj);
             _context.SaveChanges();
         }
+
+        public static implicit operator ProfessionalService(ProfessionalTypeService v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
