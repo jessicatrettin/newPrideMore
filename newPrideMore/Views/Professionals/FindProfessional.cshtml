@@ -1,0 +1,47 @@
+﻿@model IEnumerable<newPrideMore.Models.Professional>
+
+@{
+    ViewData["Title"] = "Pesquisar";
+}
+
+<h2>Pesquisar profissionais</h2>
+<p>
+    <label>Tipo de profissional</label><br>
+    <select></select><br>
+    <a asp-action="Delete" class="btn btn-dark">Pesquisar</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="sucess">
+            <th>
+                <span>Nome</span>
+            </th>
+            <th>
+                <span>Profissão</span>
+            </th>
+            <th>
+                <span>Especialidade</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfessionalType.Profission)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
