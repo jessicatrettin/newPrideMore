@@ -12,6 +12,8 @@ namespace newPrideMore.Models
         public string Register { get; set; }
         [Required]
         public ProfessionalType ProfessionalType { get; set; }
+        public int ProfessionalTypeId { get; set; }
+
         [Required]
         public string Address { get; set; }
         public string HealthInsurance { get; set; }

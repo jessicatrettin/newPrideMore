@@ -27,6 +27,12 @@ namespace newPrideMore.Controllers
             return View(list);
         }
 
+        public IActionResult FindProfessional()
+        {
+            var list = _professionalService.FindAll();
+            return View(list);
+        }
+
         public IActionResult Create()
         {
             var professionalTypes = _professionaTypeService.FindAll();

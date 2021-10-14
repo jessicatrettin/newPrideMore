@@ -19,5 +19,10 @@ namespace newPrideMore.Services
         {
             return _context.ProfessionalType.OrderBy(x => x.Profission).ToList();
         }
+
+        public List<ProfessionalType> FindProfission()
+        {
+            return _context.ProfessionalType.OrderBy(x => x.Speciality).ToList();
+        }
     }
 }

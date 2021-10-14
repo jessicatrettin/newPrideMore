@@ -2,7 +2,7 @@
 
 namespace newPrideMore.Migrations
 {
-    public partial class NewPT : Migration
+    public partial class v01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

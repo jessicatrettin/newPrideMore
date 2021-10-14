@@ -7,14 +7,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace newPrideMore.Migrations
 {
     [DbContext(typeof(newPrideMoreContext))]
-    [Migration("20211012235655_Other entities")]
-    partial class Otherentities
+    [Migration("20211014020414_aNewDb")]
+    partial class aNewDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.19")
+                .HasAnnotation("ProductVersion", "3.1.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("newPrideMore.Models.Contact", b =>

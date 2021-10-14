@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace newPrideMore.Migrations
 {
     [DbContext(typeof(newPrideMoreContext))]
-    [Migration("20211013010714_NewPT")]
-    partial class NewPT
+    [Migration("20211014012913_newDb")]
+    partial class newDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,6 +88,9 @@ namespace newPrideMore.Migrations
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<int>("ProfessionalTypeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Email");
 
                     b.ToTable("User");
@@ -105,9 +108,6 @@ namespace newPrideMore.Migrations
 
                     b.Property<string>("HealthInsurance")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("ProfessionalTypeId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Register")
                         .IsRequired()

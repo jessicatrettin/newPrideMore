@@ -23,6 +23,8 @@
             <th>
                 <span>Especialidade</span>
             </th>
+            <th>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -33,10 +35,10 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProfessionalType.Profission)
+                    @Html.DisplayFor(modelItem => item.ProfessionalType)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
+                    @Html.DisplayFor(modelItem => item.ProfessionalType)
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a>

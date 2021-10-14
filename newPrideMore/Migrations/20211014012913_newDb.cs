@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace newPrideMore.Migrations
 {
-    public partial class Otherentities : Migration
+    public partial class newDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,6 +24,20 @@ namespace newPrideMore.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProfessionalType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Profission = table.Column<string>(nullable: true),
+                    Speciality = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProfessionalType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -33,9 +47,9 @@ namespace newPrideMore.Migrations
                     Phone = table.Column<string>(nullable: false),
                     Instagram = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: false),
+                    ProfessionalTypeId = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
                     Register = table.Column<string>(nullable: true),
-                    ProfessionalTypeId = table.Column<int>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     HealthInsurance = table.Column<string>(nullable: true)
                 },
@@ -63,6 +77,9 @@ namespace newPrideMore.Migrations
 
             migrationBuilder.DropTable(
                 name: "User");
+
+            migrationBuilder.DropTable(
+                name: "ProfessionalType");
         }
     }
 }
