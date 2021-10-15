@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace newPrideMore.Models
 {
@@ -40,5 +35,12 @@ namespace newPrideMore.Models
         {
             return Professionals.ToList(professionals);
         }*/
+
+
+        public override string ToString()
+        {
+            return Profission + " | " + Speciality;
+        }
+        
     }
 }

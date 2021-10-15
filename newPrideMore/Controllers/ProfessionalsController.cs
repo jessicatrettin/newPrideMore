@@ -2,10 +2,6 @@
 using newPrideMore.Models;
 using newPrideMore.Models.ViewModels;
 using newPrideMore.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace newPrideMore.Controllers
 {
@@ -27,6 +23,7 @@ namespace newPrideMore.Controllers
             return View(list);
         }
 
+
         public IActionResult FindProfessional()
         {
             var list = _professionalService.FindAll();
@@ -47,5 +44,27 @@ namespace newPrideMore.Controllers
             _professionalService.Insert(professional);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Delete(string? id)
+        {
+            
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _professionalService.FindById(id.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+
+
+        }
+        /*public IActionResult Details(int? id)
+        {
+
+        }*/
     }
 }

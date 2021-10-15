@@ -7,7 +7,7 @@
 <h2>Pesquisar profissionais</h2>
 <p>
     <label>Tipo de profissional</label><br>
-    <select></select><br>
+    <select></select><br><br>
     <a asp-action="Delete" class="btn btn-dark">Pesquisar</a>
 </p>
 
@@ -41,7 +41,9 @@
                     @Html.DisplayFor(modelItem => item.ProfessionalType)
                 </td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a>
+                    <a asp-action="" asp-route-id="@item.Email">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Email">Excluir</a>
                 </td>
             </tr>
         }

@@ -53,7 +53,9 @@
                     @Html.DisplayFor(modelItem => item.HealthInsurance)
                 </td>
                 <td>
+                    <a asp-action="Edit" asp-route-id="@item.Email">Editar</a>
                     <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.Email">Excluir</a>
                 </td>
             </tr>
             }
