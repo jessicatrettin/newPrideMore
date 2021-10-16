@@ -1,16 +1,10 @@
 ﻿@model newPrideMore.Models.Professional
 
 @{
-    ViewData["Title"] = "Deletar profissional";
+    ViewData["Title"] = "Detalhes do profissional";
 }
 
 <h2>@ViewData["Title"]</h2>
-<hr />
-<h4>Você tem certeza que quer excluir?</h4>
-<form asp-action="Delete">
-    <input type="hidden" asp-for="Email" />
-    <input type="submit" value="Sim" class="btn btn-danger" />
-</form>
 <hr />
 <div>
     <dl class="row">
@@ -62,9 +56,23 @@
         <dd class="col-sm-9">
             @Html.DisplayFor(model => model.HealthInsurance)
         </dd>
-    </dl>
+    </div>
+<hr />
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">
+            <span>Para profissional</span>
+        </dt>
+        <dd class="col-sm-9">
+            <a asp-action="Edit" class="btn btn-dark" asp-route-id="@Model.Email">Editar seu cadastro</a>   
+            <a asp-action="Delete" class="btn btn-dark" asp-route-id="@Model.Email">Excluir seu cadastro</a>
+        </dd>
+</dl>
+</div>
 
-    <form asp-action="Delete">
-        <a asp-action="Index">← Voltar</a>
-    </form>
+
+<hr />
+
+<div>
+    <a asp-action="Index">← Voltar</a>
 </div>

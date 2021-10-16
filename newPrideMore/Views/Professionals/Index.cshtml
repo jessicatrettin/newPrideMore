@@ -2,62 +2,59 @@
 
 @{
     ViewData["Title"] = "Pesquisar";
-    }
+}
 
-    <h2>Pesquisar profissionais</h2>
-    <p>
-        <label>Tipo de profissional</label><br>
-        <select></select><br>
-        <a asp-action="Delete" class="btn btn-dark">Pesquisar</a>
-    </p>
+<h2>Pesquisar profissionais</h2>
+<p>
+    <label>Tipo de profissional</label><br>
+    <select></select><br>
+    <a asp-action="Delete" class="btn btn-dark">Pesquisar</a>
+</p>
 
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr class="sucess">
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Address)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Phone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Instagram)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.HealthInsurance)
-                </th>
-                <th>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Instagram)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.HealthInsurance)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Email">Editar</a>
-                    <a asp-action="Details" asp-route-id="@item.Email">Detalhes</a>
-                    <a asp-action="Delete" asp-route-id="@item.Email">Excluir</a>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
+<table class="table">
+    <thead>
+        <th>
+            <span>Nome</span>
+        </th>
+        <th>
+            <span>Profissão</span>
+        </th>
+        <th>
+            <span>Especialidade</span>
+        </th>
+        <th>
+            <span>Endereço</span>
+        </th>
+        <th>
+            <span>Convênios</span>
+        </th>
+        <th>
+        </th>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessionalType.Profission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HealthInsurance)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Email">+ informações </a>
+            </td>
+        </tr>
+        <hr />
+        }
+    </tbody>
+</table>
