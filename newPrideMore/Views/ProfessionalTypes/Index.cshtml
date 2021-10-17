@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<newPrideMore.Models.ProfessionalType>
 
 @{
-    ViewData["Title"] = "Cadastro: Profissão | Especialidade";
+    ViewData["Title"] = "Profissões";
 }
 
-<h2>Cadastro: Profissão | Especialidade</h2>
+<h2>@ViewData["Title"]</h2>
 
 <p>
     <a asp-action="Create">Cadastrar</a>
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Profission)
+                Profissão
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Speciality)
+                Especialidade
             </th>
             <th></th>
         </tr>
