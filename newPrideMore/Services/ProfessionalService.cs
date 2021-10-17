@@ -1,7 +1,10 @@
-﻿using newPrideMore.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using newPrideMore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using newPrideMore.Services.Exeptions;
 
 namespace newPrideMore.Services
 {
@@ -25,18 +28,13 @@ namespace newPrideMore.Services
             _context.SaveChanges();
         }
 
-        public static implicit operator ProfessionalService(ProfessionalTypeService v)
-        {
-            throw new NotImplementedException();
-        }
-
         //public Professional FindByProfessionalType(string professionalType)
         //{
         //    return _context.ProfessionalType.FirstOrDefault(obj => obj.Speciality == professionalType);
         //}
         public User FindById(string id)
         {
-            return _context.Professional.FirstOrDefault(obj => obj.Email == id);
+            return _context.Professional.Include(obj => obj.ProfessionalType).FirstOrDefault(obj => obj.Email == id);
         }
 
         public void Remove(string id)
@@ -44,6 +42,25 @@ namespace newPrideMore.Services
             var obj = _context.Professional.Find(id);
             _context.Professional.Remove(obj);
             _context.SaveChanges();
+        }
+        
+        public void Update(Professional obj)
+        {
+            if (!_context.Professional.Any(x => x.Email == obj.Email))
+            {
+                throw new NotFoundException("Email não encontrado");
+            }
+
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+            }
+            
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new DbUpdateConcurrencyException(e.Message);
+            }
         }
     }
 }

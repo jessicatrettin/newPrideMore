@@ -1,5 +1,4 @@
-﻿@model newPrideMore.Models.Professional
-
+﻿@model newPrideMore.Models.ViewModels.ProfessionalFormViewModel
 @{
     ViewData["Title"] = "Editar profissional";
 }
@@ -9,56 +8,58 @@
 <div class="row">
     <div class="col-md-6">
         <form asp-action="Edit">
+            <input type="hidden" asp-for="Professional.Email" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label">Nome*</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Professional.Name" class="control-label">Nome*</label>
+                <input asp-for="Professional.Name" class="form-control" />
+                <span asp-validation-for="Professional.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cpf" class="control-label">CPF*</label>
-                <input asp-for="Cpf" class="form-control" />
-                <span asp-validation-for="Cpf" class="text-danger"></span>
+                <label asp-for="Professional.Cpf" class="control-label">CPF*</label>
+                <input asp-for="Professional.Cpf" class="form-control" />
+                <span asp-validation-for="Professional.Cpf" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ProfessionalTypeId" class="control-label">Profissão*</label>
-                <select asp-for="ProfessionalTypeId" class="form-control" asp-items="ViewBag.ProfessionalTypeId"></select>
-                <span asp-validation-for="ProfessionalTypeId" class="text-danger"></span>
+                <label asp-for="Professional.ProfessionalTypeId" class="control-label">Profissão*</label>
+                <select asp-for="Professional.ProfessionalTypeId" asp-items="@(new SelectList(Model.ProfessionalTypes,"Id","Speciality"))" class="form-control"></select>
             </div>
+
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Register" class="control-label">Registro profisional*</label>
-                <input asp-for="Register" class="form-control" />
-                <span asp-validation-for="Register" class="text-danger"></span>
+                <label asp-for="Professional.Register" class="control-label">Registro profisional*</label>
+                <input asp-for="Professional.Register" class="form-control" />
+                <span asp-validation-for="Professional.Register" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label">E-mail*</label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="Professional.Email" class="control-label">E-mail*</label>
+                <input asp-for="Professional.Email" class="form-control" />
+                <span asp-validation-for="Professional.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address" class="control-label">Endereço de atendimento*</label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
+                <label asp-for="Professional.Address" class="control-label">Endereço de atendimento*</label>
+                <input asp-for="Professional.Address" class="form-control" />
+                <span asp-validation-for="Professional.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Phone" class="control-label">Contato*</label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
+                <label asp-for="Professional.Phone" class="control-label">Contato*</label>
+                <input asp-for="Professional.Phone" class="form-control" />
+                <span asp-validation-for="Professional.Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Instagram" class="control-label">Instagram</label>
-                <input asp-for="Instagram" class="form-control" />
-                <span asp-validation-for="Instagram" class="text-danger"></span>
+                <label asp-for="Professional.Instagram" class="control-label">Instagram</label>
+                <input asp-for="Professional.Instagram" class="form-control" />
+                <span asp-validation-for="Professional.Instagram" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="HealthInsurance" class="control-label">Convênios</label>
-                <input asp-for="HealthInsurance" class="form-control" />
-                <span asp-validation-for="HealthInsurance" class="text-danger"></span>
+                <label asp-for="Professional.HealthInsurance" class="control-label">Convênios</label>
+                <input asp-for="Professional.HealthInsurance" class="form-control" />
+                <span asp-validation-for="Professional.HealthInsurance" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label">Senha*</label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label asp-for="Professional.Password" class="control-label">Senha*</label>
+                <input asp-for="Professional.Password" class="form-control" />
+                <span asp-validation-for="Professional.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Salvar alterações" class="btn btn-dark" />

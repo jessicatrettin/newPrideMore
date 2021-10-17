@@ -9,16 +9,19 @@ namespace newPrideMore.Models
     public class User
     {
         [Key]
-        [Required]
+        [Required(ErrorMessage ="É necessário informar um e-mail")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "É necessário informar um Nome")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "É necessário informar um CPF")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "Informe um CPF válido")]
         public string Cpf { get; set; }
-        [Required]
+        [Required(ErrorMessage = "É necessário informar um telefone de contato")]
+        [StringLength(11, MinimumLength = 10, ErrorMessage = "Informe um telefone válido")]
         public string Phone { get; set; }
         public string Instagram { get; set; }
-        [Required]
+        [Required(ErrorMessage = "É necessário informar uma senha")]
+        [StringLength(8, MinimumLength =8, ErrorMessage ="Senha deve possuir 8 caracteres")]
         public string Password { get; set; }
 
         public User()

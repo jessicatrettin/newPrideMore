@@ -21,7 +21,7 @@
             @Html.DisplayFor(model => model.ProfessionalType.Profission)
         </dd>
         <dt class="col-sm-3">
-            <span>Profissão</span>
+            <span>Especialidade</span>
         </dt>
         <dd class="col-sm-9">
             @Html.DisplayFor(model => model.ProfessionalType.Speciality)
@@ -56,7 +56,7 @@
         <dd class="col-sm-9">
             @Html.DisplayFor(model => model.HealthInsurance)
         </dd>
-    </div>
+</div>
 <hr />
 <div>
     <dl class="row">
@@ -64,10 +64,10 @@
             <span>Para profissional</span>
         </dt>
         <dd class="col-sm-9">
-            <a asp-action="Edit" class="btn btn-dark" asp-route-id="@Model.Email">Editar seu cadastro</a>   
+            <a asp-action="Edit" class="btn btn-dark" asp-route-id="@Model.Email">Editar seu cadastro</a>
             <a asp-action="Delete" class="btn btn-dark" asp-route-id="@Model.Email">Excluir seu cadastro</a>
         </dd>
-</dl>
+    </dl>
 </div>
 
 
