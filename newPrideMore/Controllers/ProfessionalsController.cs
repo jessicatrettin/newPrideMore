@@ -4,6 +4,7 @@ using newPrideMore.Models.ViewModels;
 using newPrideMore.Services;
 using newPrideMore.Services.Exeptions;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace newPrideMore.Controllers
 {
@@ -19,16 +20,16 @@ namespace newPrideMore.Controllers
         }
 
         // GET: Professional
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var list = _professionalService.FindAll();
+            var list = await _professionalService.FindAllAsync();
             return View(list);
         }
 
         // GET: ProfessionalTypes/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var professionalTypes = _professionalTypeService.FindAll();
+            var professionalTypes = await _professionalTypeService.FindAllAsync();
             var viewModel = new ProfessionalFormViewModel { ProfessionalTypes = professionalTypes };
             return View(viewModel);
         }
@@ -36,21 +37,21 @@ namespace newPrideMore.Controllers
         // POST: ProfessionalTypes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Professional professional)
+        public async Task<IActionResult> Create(Professional professional)
         {
-            _professionalService.Insert(professional);
+            await _professionalService.InsertAsync(professional);
             return RedirectToAction(nameof(Index));
         }
 
         // GET: Professional/Delete
-        public IActionResult Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var obj = _professionalService.FindById(id);
+            var obj = await _professionalService.FindByIdAsync(id);
             if (obj == null)
             {
                 return NotFound();
@@ -62,21 +63,21 @@ namespace newPrideMore.Controllers
         //// POST: Professional/Delete
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public IActionResult Delete(string id)
+        //public async Task<IActionResult> Delete(string id)
         //{
-        //    _professionalService.Remove(id);
+        //    await _professionalService.RemoveAsync(id);
         //    return RedirectToAction(nameof(Index));
         //}
 
         // GET: Professionals/Details
-        public IActionResult Details(string id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var obj = _professionalService.FindById(id);
+            var obj = await _professionalService.FindByIdAsync(id);
             if (obj == null)
             {
                 return NotFound();
@@ -86,20 +87,20 @@ namespace newPrideMore.Controllers
         }
 
         // GET: Professionals/Edit
-        public IActionResult Edit(string id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var obj = _professionalService.FindById(id);
+            var obj = await _professionalService.FindByIdAsync(id);
             if (obj == null)
             {
                 return NotFound();
             }
 
-            List<ProfessionalType> professionalTypes = _professionalTypeService.FindAll();
+            List<ProfessionalType> professionalTypes = await _professionalTypeService.FindAllAsync();
             ProfessionalFormViewModel viewModel = new ProfessionalFormViewModel { Professional = (Professional)obj, ProfessionalTypes = professionalTypes };
             return View(viewModel);
         }
@@ -107,7 +108,7 @@ namespace newPrideMore.Controllers
         // POST: Professionals/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(string id, Professional professional)
+        public async Task<IActionResult> Edit(string id, Professional professional)
         {
             if (id != professional.Email)
             {
@@ -116,7 +117,7 @@ namespace newPrideMore.Controllers
 
             try
             {
-                _professionalService.Update(professional);
+                await _professionalService.UpdateAsync(professional);
                 return RedirectToAction(nameof(Index));
             }
 

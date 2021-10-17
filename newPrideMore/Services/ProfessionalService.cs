@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using newPrideMore.Services.Exeptions;
+using System.Threading.Tasks;
 
 namespace newPrideMore.Services
 {
@@ -17,36 +18,37 @@ namespace newPrideMore.Services
             _context = context;
         }
 
-        public List<Professional> FindAll()
+        public async Task<List<Professional>> FindAllAsync( )
         {
-            return _context.Professional.ToList();
+            return await _context.Professional.ToListAsync();
         }
         
-        public void Insert(Professional obj)
+        public async Task InsertAsync(Professional obj)
         {
             _context.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         //public Professional FindByProfessionalType(string professionalType)
         //{
         //    return _context.ProfessionalType.FirstOrDefault(obj => obj.Speciality == professionalType);
         //}
-        public User FindById(string id)
+        public async Task<User> FindByIdAsync(string id)
         {
-            return _context.Professional.Include(obj => obj.ProfessionalType).FirstOrDefault(obj => obj.Email == id);
+            return await _context.Professional.Include(obj => obj.ProfessionalType).FirstOrDefaultAsync(obj => obj.Email == id);
         }
 
-        public void Remove(string id)
+        public async Task RemoveAsync(string id)
         {
-            var obj = _context.Professional.Find(id);
+            var obj = await _context.Professional.FindAsync(id);
             _context.Professional.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         
-        public void Update(Professional obj)
+        public async Task UpdateAsync(Professional obj)
         {
-            if (!_context.Professional.Any(x => x.Email == obj.Email))
+            bool hasAny = await _context.Professional.AnyAsync(x => x.Email == obj.Email);
+            if (!hasAny)
             {
                 throw new NotFoundException("Email não encontrado");
             }
@@ -54,7 +56,7 @@ namespace newPrideMore.Services
             try
             {
                 _context.Update(obj);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             
             catch (DbUpdateConcurrencyException e)

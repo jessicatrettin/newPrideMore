@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using newPrideMore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace newPrideMore.Services
 {
@@ -13,9 +15,9 @@ namespace newPrideMore.Services
             _context = context;
         }
 
-        public List<ProfessionalType> FindAll()
+        public async Task<List<ProfessionalType>> FindAllAsync()
         {
-            return _context.ProfessionalType.OrderBy(x => x.Profission).ToList();
+            return await _context.ProfessionalType.OrderBy(x => x.Profission).ToListAsync();
         }
 
         public List<ProfessionalType> FindProfission()
