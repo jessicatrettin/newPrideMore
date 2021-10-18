@@ -21,12 +21,6 @@
             <th>
                 <span>Especialidade</span>
             </th>
-            <th>
-                <span>Endereço</span>
-            </th>
-            <th>
-                <span>Convênios</span>
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -42,12 +36,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HealthInsurance)
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.Email">+ informações</a>
