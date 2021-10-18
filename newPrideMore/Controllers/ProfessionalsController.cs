@@ -125,8 +125,18 @@ namespace newPrideMore.Controllers
             {
                 return BadRequest();
             }
-
         }
 
+        // GET: Professional/Search
+        public async Task<IActionResult> Search()
+        {
+                return View();
+        }
+
+        // GET: Professional/Search/ProfessionalSearch
+        public async Task<IActionResult> ProfessionalSearch()
+        {
+            return View();
+        }
     }
 }
