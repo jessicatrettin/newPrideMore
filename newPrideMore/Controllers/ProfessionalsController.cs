@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using newPrideMore.Models;
 using newPrideMore.Models.ViewModels;
 using newPrideMore.Services;
 using newPrideMore.Services.Exeptions;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace newPrideMore.Controllers
@@ -12,18 +15,44 @@ namespace newPrideMore.Controllers
     {
         private readonly ProfessionalService _professionalService;
         private readonly ProfessionalTypeService _professionalTypeService;
+        private readonly newPrideMoreContext _context;
 
-        public ProfessionalsController(ProfessionalService professionalService, ProfessionalTypeService professionalTypeService)
+        public ProfessionalsController(ProfessionalService professionalService, ProfessionalTypeService professionalTypeService, newPrideMoreContext context)
         {
             _professionalService = professionalService;
             _professionalTypeService = professionalTypeService;
+            _context = context;
         }
 
+
         // GET: Professional
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(ProfessionalType specialist, string searchSpeciality)
         {
-            var list = await _professionalService.FindAllAsync();
-            return View(list);
+            IQueryable<ProfessionalType> professionalTypeQuery = from p in _context.Professional
+                                                                 orderby p.ProfessionalType
+                                                                 select p.ProfessionalType;
+
+            var professional = from p in _context.Professional
+                               select p;
+
+            if (!string.IsNullOrEmpty(searchSpeciality))
+            {
+                professional = professional.Where(s => s.Name.Contains(searchSpeciality));
+            }
+
+            /*if (ProfessionalType.ProfessionalIsNullOrEmpty(specialist))
+            { 
+                professional = professional.Where(x => x.ProfessionalType == specialist);
+            }*/
+
+            var profissionalTypeVM = new ProfessionalTypeFormViewModel
+            {
+                ProfessionalTypes = new SelectList(await professionalTypeQuery.ToListAsync()),
+                Professionals = await professional.ToListAsync()
+            };
+
+            return View(profissionalTypeVM);
         }
 
         // GET: ProfessionalTypes/Create
@@ -127,16 +156,7 @@ namespace newPrideMore.Controllers
             }
         }
 
-        // GET: Professional/Search
-        public async Task<IActionResult> Search()
-        {
-                return View();
-        }
 
-        // GET: Professional/Search/ProfessionalSearch
-        public async Task<IActionResult> ProfessionalSearch()
-        {
-            return View();
-        }
+        
     }
 }

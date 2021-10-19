@@ -1,23 +1,25 @@
-﻿@model IEnumerable<newPrideMore.Models.Professional>
+﻿@model newPrideMore.Models.ViewModels.ProfessionalTypeFormViewModel
 
 @{
-    ViewData["Title"] = "Todos os profissionais";
+    ViewData["Title"] = "Procurar profissionais";
 }
 
-<h2>Todos os profissionais</h2>
+<h2>Procurar profissionais</h2>
 <hr />
-<p>
-    <a asp-action="Create" class="btn btn-dark">Cadastrar</a>
-    <a asp-action="Search" class="btn btn-dark">Procurar</a>
-</p>
+
+
+<form asp-controller="Professionals" asp-action="Index" method="get">
+    <label asp-for="Specialist" class="control-label">Escolha o profissional</label>
+    <select class="form-control" asp-for="Specialist" asp-items="Model.ProfessionalTypes">
+        <option value="">Todos</option>
+    </select>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
                 <span>Nome</span>
-            </th>
-            <th>
-                <span>Profissão</span>
             </th>
             <th>
                 <span>Especialidade</span>
@@ -26,22 +28,19 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Professionals)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProfessionalType.Profission)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Email">+ informações</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Email">+ informações</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

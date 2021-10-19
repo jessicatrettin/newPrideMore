@@ -17,7 +17,7 @@ namespace newPrideMore.Services
 
         public async Task<List<ProfessionalType>> FindAllAsync()
         {
-            return await _context.ProfessionalType.OrderBy(x => x.Profission).ToListAsync();
+            return await _context.ProfessionalType.OrderBy(x => x.Speciality).ToListAsync();
         }
 
         public List<ProfessionalType> FindProfission()

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace newPrideMore.Models
 {
     public class ProfessionalType
     {
         public int Id { get; set; }
-        public string Profission { get; set; }
         public string Speciality { get; set; }
         public ICollection<Professional> Professionals { get; set; } = new List<Professional>();
 
@@ -14,10 +14,9 @@ namespace newPrideMore.Models
 
         }
 
-        public ProfessionalType(int id, string profission, string speciality)
+        public ProfessionalType(int id, string speciality)
         {
             Id = id;
-            Profission = profission;
             Speciality = speciality;
         }
 
@@ -35,12 +34,5 @@ namespace newPrideMore.Models
         {
             return Professionals.ToList(professionals);
         }*/
-
-
-        public override string ToString()
-        {
-            return Profission + " | " + Speciality;
-        }
-        
     }
 }

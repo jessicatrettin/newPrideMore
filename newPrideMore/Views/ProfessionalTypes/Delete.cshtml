@@ -6,7 +6,7 @@
 
 <h2>Excluir</h2>
 
-<h4>@Html.DisplayFor(model => model.Profission) | @Html.DisplayFor(model => model.Speciality)</h4>
+<h4>@Html.DisplayFor(model => model.Speciality)</h4>
 <hr />
 <h4>Você tem certeza que quer excluir?</h4>
 <form asp-action="Delete">
@@ -16,16 +16,10 @@
 <hr />
 <div>
     <dl class="row">
-        <dt class="col-sm-2">
-            <span>Profissão</span>
+        <dt class="col-sm-3">
+            <span>Profissão | Especialidade</span>
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Profission)
-        </dd>
-        <dt class="col-sm-2">
-            <span>Especialidade</span>
-        </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Speciality)
         </dd>
     </dl>
