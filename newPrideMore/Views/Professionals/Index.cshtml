@@ -25,22 +25,26 @@
                 <span>Especialidade</span>
             </th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Professionals)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Email">+ informações</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfessionalType.Speciality)
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Email">+ informações</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

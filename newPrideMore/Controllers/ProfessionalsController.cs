@@ -89,14 +89,14 @@ namespace newPrideMore.Controllers
             return View(obj);
         }
 
-        //// POST: Professional/Delete
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Delete(string id)
-        //{
-        //    await _professionalService.RemoveAsync(id);
-        //    return RedirectToAction(nameof(Index));
-        //}
+        /*// POST: Professional/Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(string id) 
+        {
+            await _professionalService.RemoveAsync(id);
+            return RedirectToAction(nameof(Index));
+        }*/
 
         // GET: Professionals/Details
         public async Task<IActionResult> Details(string id)

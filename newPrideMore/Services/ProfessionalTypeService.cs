@@ -24,5 +24,11 @@ namespace newPrideMore.Services
         {
             return _context.ProfessionalType.OrderBy(x => x.Speciality).ToList();
         }
+
+        /*public bool HasAnySpeciality(string? speciality)
+        {
+            var speciality = _context.ProfessionalType
+            if(!string.IsNullOrEmpty())
+        }*/
     }
 }

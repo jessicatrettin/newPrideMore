@@ -16,17 +16,17 @@
                 Especialidade
             </th>
             <th></th>
-            <th class="col-2"></th>
+            <th class="col-4"></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr class="col-3">
+        <tr class="col-4">
             <td>
                 @Html.DisplayFor(modelItem => item.Speciality)
             </td>
             <td></td>
-            <td  class="col-2">
+            <td  class="col-3">
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
