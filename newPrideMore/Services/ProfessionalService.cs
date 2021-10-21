@@ -29,10 +29,6 @@ namespace newPrideMore.Services
             await _context.SaveChangesAsync();
         }
 
-        //public Professional FindByProfessionalType(string professionalType)
-        //{
-        //    return _context.ProfessionalType.FirstOrDefault(obj => obj.Speciality == professionalType);
-        //}
         public async Task<User> FindByIdAsync(string id)
         {
             return await _context.Professional.Include(obj => obj.ProfessionalType).FirstOrDefaultAsync(obj => obj.Email == id);

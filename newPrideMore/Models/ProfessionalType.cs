@@ -20,6 +20,11 @@ namespace newPrideMore.Models
             Speciality = speciality;
         }
 
+        public override string ToString()
+        {
+            return Speciality;
+        }
+
         public void AddProfessional(Professional professional)
         {
             Professionals.Add(professional);

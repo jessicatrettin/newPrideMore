@@ -34,6 +34,10 @@ namespace newPrideMore
             services.AddScoped<ProfessionalService>();
             services.AddScoped<ProfessionalTypeService>();
 
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IEmailSender, AuthMessageSender>();
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
