@@ -9,16 +9,22 @@
 
 
 <form asp-controller="Professionals" asp-action="Index" method="get">
-    <div class="col-11">
-        <label asp-for="Specialist" class="control-label">Escolha o profissional</label>
-        <select class="form-control" asp-for="Specialist" asp-items="Model.ProfessionalTypes">
-            <option value="">Todos</option>
-        </select>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 pb-4" >
+                
+                <select class="form-control" asp-for="Specialist" asp-items="Model.ProfessionalTypes">
+                    <option value="">Todos</option>
+                </select>
+            </div>
+            <div class="col-md-1 pb-4 mb-0">
+                <input type="submit" value="Procurar" class="btn btn-dark" />
+            </div>
+        </div>
     </div>
-    <div class="col-1">
-        <input type="submit" value="Procurar" class="btn btn-dark" />
-    </div>
+ 
 </form>
+
 
 <table class="table">
     <thead>

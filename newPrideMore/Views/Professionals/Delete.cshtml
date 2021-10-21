@@ -7,7 +7,7 @@
 <h2>@ViewData["Title"]</h2>
 <hr />
 <h4>Você tem certeza que quer excluir?</h4>
-<form asp-action="Delete">
+<form asp-action="Delete2">
     <input type="hidden" asp-for="Email" />
     <input type="submit" value="Sim" class="btn btn-danger" />
 </form>
@@ -21,10 +21,10 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class="col-sm-3">
-            <span>Profissão</span>
+            <span>Especialidade</span>
         </dt>
         <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.ProfessionalType)
+            @Html.DisplayFor(model => model.ProfessionalType.Speciality)
         </dd>
         <dt class="col-sm-3">
             <span>Registro profissional</span>

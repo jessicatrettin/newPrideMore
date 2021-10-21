@@ -27,7 +27,7 @@ namespace newPrideMore.Controllers
 
         // GET: Professional
 
-        public async Task<IActionResult> Index(ProfessionalType specialist, string searchSpeciality)
+        public async Task<IActionResult> Index(string specialist, string searchSpeciality)
         {
             IQueryable<ProfessionalType> professionalTypeQuery = from p in _context.Professional
                                                                  orderby p.ProfessionalType
@@ -41,10 +41,10 @@ namespace newPrideMore.Controllers
                 professional = professional.Where(s => s.Name.Contains(searchSpeciality));
             }
 
-            /*if (ProfessionalType.ProfessionalIsNullOrEmpty(specialist))
+            if (!string.IsNullOrEmpty(specialist))
             { 
-                professional = professional.Where(x => x.ProfessionalType == specialist);
-            }*/
+                professional = professional.Where(x => x.ProfessionalType.Speciality.Contains(specialist));
+            }
 
             var profissionalTypeVM = new ProfessionalTypeFormViewModel
             {
@@ -89,14 +89,14 @@ namespace newPrideMore.Controllers
             return View(obj);
         }
 
-        /*// POST: Professional/Delete
+        // POST: Professional/Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(string id) 
+        public async Task<IActionResult> Delete2(string id) 
         {
             await _professionalService.RemoveAsync(id);
             return RedirectToAction(nameof(Index));
-        }*/
+        }
 
         // GET: Professionals/Details
         public async Task<IActionResult> Details(string id)

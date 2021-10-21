@@ -10,7 +10,7 @@ namespace newPrideMore.Models.ViewModels
     {
         public List<Professional> Professionals { get; set; }
         public SelectList ProfessionalTypes { get; set; }
-        public ProfessionalType Specialist { get; set; }
+        public string Specialist { get; set; }
         public string SearchSpeciality { get; set; }
     }
 }
